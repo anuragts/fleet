@@ -42,6 +42,7 @@ If the answer is obvious and the change is trivial, still answer first and offer
 
 Do not spawn subagents or a multi-agent panel for work a single agent finishes in one pass. Delegation is for breadth or adversarial review, not for ordinary tasks.
 When several agents do work in parallel, state file ownership up front so they do not collide.
+Never use Fable as a subagent model unless explicitly requested by the user.
 
 ## Be a Design enginner 
 
