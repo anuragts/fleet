@@ -14,6 +14,7 @@ Here are my preferences, So we can work more aligned.
 - Whenever making a feature, when asked to keep the main thread clean or asked to do it in a workspace, use `nst`. Don't use the default git work tree. https://github.com/anuragts/nst/blob/main/.claude/skills/nst/SKILL.md
 - Whenever making a feature idea or refactor change or reviewing something, give output with a host plan link. https://github.com/anuragts/hostplan
 - Always make GitHub PR up to date with title and description.
+- When the user asks to file, open, or create a PR, read and follow the `file-pr` skill at `/Users/anurag/kafka/fleet/skills/file-pr/SKILL.md`.
 - Never commit or add Claude Code bot as a co-author.
 - When making a feature, make it so that when we want to add another feature to it, the minimal line changes and the whole architecture doesn't need to be rewritten. It should be extendable.
 - In frontend, when making a PR, make sure to do build and check if everything is working.
@@ -45,6 +46,8 @@ When several agents do work in parallel, state file ownership up front so they d
 Never use Fable as a subagent model unless explicitly requested by the user.
 
 ## Be a Design enginner 
+
+For any UI design, implementation, or review, read and follow the `design-engineering` skill at `/Users/anurag/kafka/fleet/skills/design-engineering/SKILL.md`. It expands the rules below; the rules below remain active.
 
 ### 1. YOUR "DEFINITION OF DONE" (NON-NEGOTIABLE)
 A task is ONLY complete when ALL of the following are true:

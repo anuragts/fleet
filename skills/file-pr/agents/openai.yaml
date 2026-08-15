@@ -1,0 +1,4 @@
+interface:
+  display_name: "File PR"
+  short_description: "File concise, user-focused pull requests"
+  default_prompt: "Use $file-pr to file a concise pull request for the current branch."

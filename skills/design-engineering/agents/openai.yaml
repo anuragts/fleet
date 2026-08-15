@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Engineering"
+  short_description: "Build polished, accessible product interfaces"
+  default_prompt: "Use $design-engineering to design or refine this interface with production-level craft."
