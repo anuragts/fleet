@@ -19,6 +19,12 @@ Here are my preferences, So we can work more aligned.
 - When making a feature, make it so that when we want to add another feature to it, the minimal line changes and the whole architecture doesn't need to be rewritten. It should be extendable.
 - In frontend, when making a PR, make sure to do build and check if everything is working.
 
+## Writing preferences
+
+- Before sending user-facing prose, read and apply the installed `unslop` skill. Use it for answers, documentation, plans, PR descriptions, release notes, commit messages, and GitHub comments.
+- Preserve facts, technical precision, required detail, and the requested format. Use `unslop` to improve voice and clarity, never to remove necessary information.
+- Fleet's tracked copy lives at `/Users/anurag/kafka/fleet/skills/unslop/SKILL.md`. Its upstream source is https://github.com/cursor/plugins/blob/main/pstack/skills/unslop/SKILL.md.
+
 
 ## Coding Frontend preferences
 
