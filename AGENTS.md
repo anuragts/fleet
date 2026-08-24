@@ -15,6 +15,7 @@ Here are my preferences, So we can work more aligned.
 - Whenever making a feature idea or refactor change or reviewing something, give output with a host plan link. https://github.com/anuragts/hostplan
 - Always make GitHub PR up to date with title and description.
 - When the user asks to file, open, or create a PR, read and follow the `file-pr` skill at `/Users/anurag/kafka/fleet/skills/file-pr/SKILL.md`.
+- When writing or updating a PR title or description, read and follow the `pr-description` skill at `/Users/anurag/kafka/fleet/skills/pr-description/SKILL.md`.
 - Never commit or add Claude Code bot as a co-author.
 - When making a feature, make it so that when we want to add another feature to it, the minimal line changes and the whole architecture doesn't need to be rewritten. It should be extendable.
 - In frontend, when making a PR, make sure to do build and check if everything is working.
