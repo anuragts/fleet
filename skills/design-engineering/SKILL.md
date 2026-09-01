@@ -204,21 +204,57 @@ usually be instant.
 - Test animation at normal speed, in slow motion, and under a 6x CPU throttle. If
   it drops frames, simplify it before shipping.
 
-## Async and data states
+## Navigation, loading, and async states
 
-Handle idle, loading, success, empty, error, partial, and stale-data states when
-the feature can produce them.
+Treat a flash as a correctness bug. The UI rendered a claim, then retracted it.
+Do not hide that false frame with a fade, timeout, minimum loader duration, or
+slower animation. Find the state transition that made the frame possible and
+remove it.
 
-- Use skeletons shaped like the final content, not generic spinners. Keep the
-  skeleton and final layout dimensions aligned.
-- Preserve usable stale content during background refresh when safe.
+- Model mutually exclusive states explicitly. Prefer a discriminated state such
+  as `idle | loading | ready | empty | error` over combinations like
+  `!isLoading && !data`. Add `partial` and `stale` when the product can truly
+  produce them. A boolean that can mean two things will eventually show the
+  wrong UI.
+- Derive display state during render when it can be computed from current router,
+  cache, and request data. Do not copy one state value into another with an
+  effect. That creates a render where the copied value is stale, which is often
+  the source of a flash.
+- Protect the application shell during navigation. Keep navigation, page chrome,
+  persistent controls, and untouched regions mounted and stable. Place loading
+  boundaries around the smallest region whose data actually changed, never
+  above the shared layout without a concrete reason.
+- Show the best truthful content already available. Keep cached data, the
+  previous page, or last-known values visible during a background refresh when
+  they remain safe and relevant. Mark stale content when that distinction matters.
+  Use a skeleton for the first unresolved visit, not as the default response to
+  every refetch.
+- Make each skeleton a layout contract. Its rows, gaps, wrapping, media ratio,
+  and total height must match the content that replaces it. If the final shape is
+  unknown, reserve a stable minimum region and reveal overflow without moving the
+  surrounding shell.
+- Sequence chunk loading, authentication, routing, and data fetching as one
+  visual transition. Reuse the same placeholder through each unresolved stage so
+  one loader can render directly into the next state. Do not expose an internal
+  pipeline as a slideshow of unrelated loading screens.
+- Use motion only to explain a user-visible change. Do not fade rows back in when
+  a background refresh returns equivalent content. If nothing changed for the
+  user, nothing should move.
+- Make pending navigation immediate and local. Update the initiating control's
+  pressed or pending state at once, preserve focus unless navigation requires a
+  deliberate move, and prevent duplicate actions. Keep cancellation available
+  when it has a real effect.
 - Make empty states explain what is empty and provide the next useful action.
-- Keep errors near the failed region, describe the problem in text, preserve user
-  input, and provide a recovery path.
-- Prevent duplicate submission while preserving visible progress and cancellation
-  where cancellation is meaningful.
-- Announce asynchronous status changes to assistive technology without stealing
-  focus.
+  Keep errors near the failed region, preserve user input and usable content, and
+  provide a recovery path.
+- Announce meaningful async status changes to assistive technology without
+  stealing focus. Avoid announcing every background refresh.
+
+Before shipping, step through first visit, cached visit, slow navigation,
+background refresh, empty response, partial response, failure, retry, rapid
+back-and-forth navigation, and browser back/forward. Record the screen frame by
+frame when necessary. No frame may show content that the current state cannot
+support.
 
 ## Accessibility and resilience
 
@@ -250,8 +286,11 @@ the feature can produce them.
   light/dark themes, long content, and localization are checked.
 - Dynamic content has reserved space or matching skeletons and introduces no
   avoidable layout shift.
-- Motion communicates, stays responsive under 6x CPU throttle, and adds no unjustified
-  dependency.
+- Navigation preserves the shared shell and shows no false intermediate frame.
+  Cached refreshes keep truthful content stable and do not replay first-load
+  motion.
+- Motion communicates, stays responsive under 6x CPU throttle, and adds no
+  unjustified dependency.
 - The result uses the existing design system and is precise enough that a designer
   does not need to correct basic spacing, type, state, or accessibility issues.
 
