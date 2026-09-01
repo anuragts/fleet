@@ -14,6 +14,12 @@ Preserve the product's existing visual language unless the user explicitly asks
 for a redesign. Reuse the installed design system and feature-level components
 before creating new primitives or dependencies.
 
+For evidence-led reports, comparisons, calculators, narrative data pages, or a
+Vercel-inspired design direction, also read `vercel-design-principles`:
+
+- Local: `/Users/anurag/kafka/fleet/skills/vercel-design-principles/SKILL.md`
+- GitHub: https://github.com/anuragts/fleet/blob/main/skills/vercel-design-principles/SKILL.md
+
 ## Working method
 
 1. Understand the user's job, the primary action, and the consequence of failure.

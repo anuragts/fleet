@@ -14,8 +14,9 @@ Here are my preferences, So we can work more aligned.
 - Whenever making a feature, when asked to keep the main thread clean or asked to do it in a workspace, use `nst`. Don't use the default git work tree. https://github.com/anuragts/nst/blob/main/.claude/skills/nst/SKILL.md
 - Whenever making a feature idea or refactor change or reviewing something, give output with a host plan link. https://github.com/anuragts/hostplan
 - Always make GitHub PR up to date with title and description.
-- When the user asks to file, open, or create a PR, read and follow the `file-pr` skill at `/Users/anurag/kafka/fleet/skills/file-pr/SKILL.md`.
-- When writing or updating a PR title or description, read and follow the `pr-description` skill at `/Users/anurag/kafka/fleet/skills/pr-description/SKILL.md`.
+- When the user asks to file, open, or create a PR, read and follow the `file-pr` skill. Local: `/Users/anurag/kafka/fleet/skills/file-pr/SKILL.md`. GitHub: https://github.com/anuragts/fleet/blob/main/skills/file-pr/SKILL.md.
+- When writing or updating a PR title or description, read and follow the `pr-description` skill. Local: `/Users/anurag/kafka/fleet/skills/pr-description/SKILL.md`. GitHub: https://github.com/anuragts/fleet/blob/main/skills/pr-description/SKILL.md.
+- Whenever a Markdown instruction file or Fleet skill links to another Fleet skill, include both its absolute local path and its GitHub `blob/main` URL. Use the local copy first and the GitHub URL when the local checkout is unavailable.
 - Never commit or add Claude Code bot as a co-author.
 - When making a feature, make it so that when we want to add another feature to it, the minimal line changes and the whole architecture doesn't need to be rewritten. It should be extendable.
 - In frontend, when making a PR, make sure to do build and check if everything is working.
@@ -24,7 +25,7 @@ Here are my preferences, So we can work more aligned.
 
 - Before sending user-facing prose, read and apply the installed `unslop` skill. Use it for answers, documentation, plans, PR descriptions, release notes, commit messages, and GitHub comments.
 - Preserve facts, technical precision, required detail, and the requested format. Use `unslop` to improve voice and clarity, never to remove necessary information.
-- Fleet's tracked copy lives at `/Users/anurag/kafka/fleet/skills/unslop/SKILL.md`. Its upstream source is https://github.com/cursor/plugins/blob/main/pstack/skills/unslop/SKILL.md.
+- Fleet's tracked `unslop` copy is local at `/Users/anurag/kafka/fleet/skills/unslop/SKILL.md` and on GitHub at https://github.com/anuragts/fleet/blob/main/skills/unslop/SKILL.md. Its upstream source is https://github.com/cursor/plugins/blob/main/pstack/skills/unslop/SKILL.md.
 
 
 ## Coding Frontend preferences
@@ -54,7 +55,9 @@ Never use Fable as a subagent model unless explicitly requested by the user.
 
 ## Be a Design enginner 
 
-For any UI design, implementation, or review, read and follow the `design-engineering` skill at `/Users/anurag/kafka/fleet/skills/design-engineering/SKILL.md`. It expands the rules below; the rules below remain active.
+For any UI design, implementation, or review, read and follow the `design-engineering` skill. Local: `/Users/anurag/kafka/fleet/skills/design-engineering/SKILL.md`. GitHub: https://github.com/anuragts/fleet/blob/main/skills/design-engineering/SKILL.md. It expands the rules below; the rules below remain active.
+
+For evidence-led reports, comparisons, calculators, narrative data pages, or a Vercel-inspired design direction, also read `vercel-design-principles`. Local: `/Users/anurag/kafka/fleet/skills/vercel-design-principles/SKILL.md`. GitHub: https://github.com/anuragts/fleet/blob/main/skills/vercel-design-principles/SKILL.md.
 
 ### 1. YOUR "DEFINITION OF DONE" (NON-NEGOTIABLE)
 A task is ONLY complete when ALL of the following are true:
