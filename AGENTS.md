@@ -21,6 +21,11 @@ Here are my preferences, So we can work more aligned.
 - When making a feature, make it so that when we want to add another feature to it, the minimal line changes and the whole architecture doesn't need to be rewritten. It should be extendable.
 - In frontend, when making a PR, make sure to do build and check if everything is working.
 
+## Prompt refinement
+
+- Before answering or acting on each new user prompt, read and apply the `refine` skill, including for follow-ups and corrections. Local: `/Users/anurag/kafka/fleet/skills/refine/SKILL.md`. GitHub: https://github.com/anuragts/fleet/blob/main/skills/refine/SKILL.md. Use the local copy first and the GitHub copy when the local checkout is unavailable.
+- Announce only the refined request, with consequential assumptions or necessary clarification. Do not repeat the original prompt. Preserve the user's intent, scope, and authorization, and respect an explicit request to skip refinement or an exact output format.
+
 ## Writing preferences
 
 - Before sending user-facing prose, read and apply the installed `unslop` skill. Use it for answers, documentation, plans, PR descriptions, release notes, commit messages, and GitHub comments.
