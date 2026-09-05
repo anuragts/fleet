@@ -1,6 +1,6 @@
 ---
 name: pr-description
-description: Write short, pointed GitHub PR descriptions as bullets, unslop applied.
+description: Write or update concise GitHub PR descriptions with clear outcomes, measured results, and relevant tradeoffs.
 metadata:
   harness: [claude, codex]
   platform: [darwin, linux]
@@ -9,68 +9,95 @@ metadata:
 
 # PR description
 
-Write PR descriptions a reviewer can read in under 30 seconds. Apply the
-`unslop` skill to every draft.
+Help someone understand what changed and why in under 30 seconds. Write like
+a colleague explaining the change in plain, professional language.
 
-## Shape
+Apply [unslop](/Users/anurag/kafka/fleet/skills/unslop/SKILL.md) to every draft.
+Fallback: [GitHub](https://github.com/anuragts/fleet/blob/main/skills/unslop/SKILL.md).
 
-1. **One-line intro.** Who reported it or why it matters, and where the change
-   lives. "Fixes three code-block UI issues Ayush flagged on Slack. All CSS, in
-   `app/styles/code-blocks.css`."
-2. **One bullet per change.** Each bullet is cause plus fix, nothing else. If a
-   bullet needs three sentences, the second and third are usually cut material.
-3. **One verification line.** What you ran and where a reviewer can see it
-   working. "Verified with `npm run build`. Eyeball on `/docs/faq/...` in dark
-   mode."
+## Default shape
 
-## Rules
+- Start with one sentence stating the outcome. Lead with measured results
+  when performance is the main point.
+- Add a few short bullets for meaningful changes. One idea per bullet.
+  Skip bullets when one sentence already explains the whole PR.
+- Include a material tradeoff or known limitation when one exists.
+- End with one short verification line stating what actually passed. Say
+  what remains unverified when it matters.
 
-- Total length: intro, 2-5 bullets, verification. If the PR needs more than
-  five bullets, the PR is probably too big.
-- Say the mechanism, not the activity. "The fade gradient is a
-  `background-image`, so `background-color: transparent` never cleared it"
-  beats "improved the background handling".
-- Skip the implementation inventory. Do not list every selector, function, or
-  file you touched; the diff already shows that. Name only what the reviewer
-  cannot infer: the cause, the decision, the tradeoff.
-- Keep one known-gap line if a real gap exists ("Firefox cannot offset
-  scrollbar tracks, so its scrollbar still tucks under the fade"). Cut it if
-  there is none; do not invent caveats.
-- No headings, no bold-label paragraphs, no "Summary / Changes / Testing"
-  scaffolding. Bullets carry the structure.
-- Unslop applies: no em dashes, no puffery, no "this ensures", plain verbs,
-  active voice.
+Aim for 80–150 words for an ordinary PR. Smaller changes can be much shorter.
+Use more space only when needed to explain consequential behavior or risks.
+Do not pad the description or force a fixed bullet count.
+Follow a required repository template; otherwise skip headings and labels.
 
-## Example
+## What to say
 
-Bad (long, labeled paragraphs, restates the diff):
+- Explain the observable change first. "Fixes the sidebar briefly appearing
+  before opening" is clearer than "Moves panel geometry into the shell."
+- Include technical details only when they explain an important decision,
+  compatibility change, or risk. Do not require cause plus mechanism for
+  every bullet.
+- For performance, state before and after, units, and the measured action.
+  Include brief test context. Distinguish delay before an animation starts
+  from time until it finishes. Never invent measurements or imply that a
+  local benchmark proves a production-wide improvement.
+- State costs neutrally. "Adds 166 KB of compressed JavaScript upfront"
+  gives useful information. "Only 166 KB, which is fine" makes an unsupported
+  judgment. Do not claim "faster" without evidence; describe the change when
+  measurements are unavailable.
+- Keep important limitations visible. Put lengthy benchmark methodology or
+  supporting logs in a collapsible section only when useful.
 
-> **Shade in code tabs.** Headerless blocks paint a fade gradient behind the
-> overlaid actions so long code lines dip under the buttons. The code-tabs
-> variant tried to clear it with `background-color: transparent`, but ...
-> (three more paragraphs)
+## What to cut
 
-Good:
+- File, function, selector, and prop inventories already visible in the diff.
+- Incidental cleanup, unless it is the purpose of the PR. "Cleanup" alone
+  does not explain a change.
+- Reviewer narration such as "A reviewer can see" or "This allows reviewers
+  to verify." State the result or check directly.
+- Dense implementation phrases such as "first-click chunk wait" when
+  "delay on the first click" says enough.
+- Hype, casual judgments, repeated summaries, and the history of the work.
 
-> Fixes three code-block UI issues Ayush flagged on Slack. All CSS, in
-> `app/styles/code-blocks.css`.
+## Examples
+
+These illustrate style. Use only facts and checks supported by the actual PR.
+
+### Performance and UI changes
+
+> Reduces the delay before the chat sidebar starts opening from **314 ms to
+> 17 ms**, about **95% less delay** in local production tests.
 >
-> - Shade behind copy/AI buttons in code tabs: the fade gradient is a
->   `background-image`, so `background-color: transparent` never cleared it.
->   The `background` shorthand does.
-> - Hover states: the AI button got an accent pill on hover, the copy button
->   didn't. Both are color-only now.
-> - Scrollbar under the copy button: the vertical track now starts below the
->   buttons (`::-webkit-scrollbar-track` margin). Chrome ignores webkit
->   scrollbar rules when `scrollbar-width`/`scrollbar-color` are set, so those
->   are Firefox-only now.
+> - Adds a bottom-right button to open chat.
+> - Makes Ask AI open and close the sidebar.
+> - Fixes the sidebar briefly appearing before opening on mobile.
+> - Makes Search and Ask AI shortcut hints consistent.
 >
-> Verified with `npm run build` and browser geometry checks. Eyeball on
-> `/docs/faq/environment-variables` in dark mode.
+> Loads chat upfront instead of on the first click, adding 166 KB of
+> compressed JavaScript to the initial load.
+>
+> Verified with 43 passing tests, lint, a production build, and mobile/desktop
+> browser checks.
+
+### Small fix
+
+> Fixes the copy button covering the code block's scrollbar on Chrome.
+>
+> Verified in Chrome with a production build. Firefox still shows the overlap.
+
+### Refactor without a measured speedup
+
+> Moves sidebar width limits into one shared function so dragging and window
+> resizing use the same bounds. The width limits remain unchanged.
+>
+> Verified with the existing resize tests and a production build.
 
 ## Keeping it current
 
-Update the description whenever the branch picks up a change that alters the
-story. The description describes the PR as merged, not its first draft. The
-title too: a PR that started as one fix and grew to three needs a title that
-covers all three (see `file-pr` for title conventions).
+Describe the complete final change, not the first draft or commit history.
+Update the title and description when authorized PR work changes their scope.
+Writing a draft does not itself authorize publishing it.
+
+For title conventions, read
+[file-pr](/Users/anurag/kafka/fleet/skills/file-pr/SKILL.md).
+Fallback: [GitHub](https://github.com/anuragts/fleet/blob/main/skills/file-pr/SKILL.md).
