@@ -1,6 +1,6 @@
 ---
 name: refine
-description: Refine each new user prompt before answering or acting, including follow-ups, questions, corrections, and prompts with images. Announce only the refined request without repeating the original prompt. Preserve intent, scope, and authorization while adding only relevant detail.
+description: Refine each new user prompt before answering or acting, including follow-ups, questions, corrections, prompts with images, and messages that interrupt ongoing work. Announce only the refined request without repeating the original prompt. Preserve intent, scope, and authorization while adding only relevant detail.
 ---
 
 # Refine
@@ -12,6 +12,12 @@ prompt authoritative. More words are useful only when they reduce ambiguity.
 ## When to run
 
 Run once for each new user message, including short follow-ups and corrections.
+This includes messages received while the AI is already working, whether the
+user adds details, answers a question, corrects an assumption, or changes direction.
+Refine and announce the update before continuing affected work. Apply it within
+the active task, preserving progress and earlier constraints that still apply.
+Replace or stop the task only when the user asks to do so or the new request
+is incompatible with continuing it.
 Do not rerun on your own announcements, tool results, or generated briefs.
 Respect an explicit request to skip refinement or an exact output format that
 leaves no room for an announcement.
