@@ -75,10 +75,12 @@ Send a visible announcement before the substantive answer or implementation.
 Show only the refined request and any necessary assumptions or clarification.
 Do not echo the original prompt, add an "Original prompt" section, or reproduce
 the user's message in a code block. Keep the original as context internally.
-Use this shape, omitting optional sections when they add nothing:
+Begin every announcement with exactly `Refined Prompt -` on its own line,
+without Markdown formatting. Put the refined request on the next line, with
+no blank line between the heading and the request. Use this shape, omitting
+optional sections when they add nothing:
 
-**Refined prompt**
-
+Refined Prompt -
 Write the task as clear instructions that preserve the user's intent. Include
 relevant behavior, scope, and completion criteria. A trivial request should
 remain one sentence; a substantial task can use a short paragraph or bullets.
@@ -102,6 +104,8 @@ user asked only for a refined prompt, deliver the announcement and stop.
 - Is every added requirement supported, or clearly marked as an assumption?
 - Did the amount of detail match the size of the request?
 - Does the announcement avoid repeating the original prompt?
+- Does it start with the exact heading `Refined Prompt -`, with the refined
+  request on the next line?
 - Can the agent finish without undertaking unrelated work?
 
 ## Example: frontend interaction
@@ -118,8 +122,7 @@ Make siderbar close on clicking ask ai button when sidebar is open, so user can 
 
 ### Expected announcement
 
-**Refined prompt**
-
+Refined Prompt -
 Make the existing Ask AI button toggle the AI sidebar:
 
 - When the sidebar is closed, clicking Ask AI opens it.
