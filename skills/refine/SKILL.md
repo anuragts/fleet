@@ -75,12 +75,15 @@ Send a visible announcement before the substantive answer or implementation.
 Show only the refined request and any necessary assumptions or clarification.
 Do not echo the original prompt, add an "Original prompt" section, or reproduce
 the user's message in a code block. Keep the original as context internally.
-Begin every announcement with exactly `Refined Prompt -` on its own line,
-without Markdown formatting. Put the refined request on the next line, with
-no blank line between the heading and the request. Use this shape, omitting
-optional sections when they add nothing:
+Begin every announcement with exactly `**Refined prompt**` on its own line.
+Render it as bold text, preserving the lowercase `p`, with no colon or dash.
+Leave one blank line after the heading, then write the refined request.
+Do not put the announcement in a code block or add introductory commentary
+before the heading. Use this shape, omitting optional sections when they add
+nothing:
 
-Refined Prompt -
+**Refined prompt**
+
 Write the task as clear instructions that preserve the user's intent. Include
 relevant behavior, scope, and completion criteria. A trivial request should
 remain one sentence; a substantial task can use a short paragraph or bullets.
@@ -104,8 +107,8 @@ user asked only for a refined prompt, deliver the announcement and stop.
 - Is every added requirement supported, or clearly marked as an assumption?
 - Did the amount of detail match the size of the request?
 - Does the announcement avoid repeating the original prompt?
-- Does it start with the exact heading `Refined Prompt -`, with the refined
-  request on the next line?
+- Does it start with `**Refined prompt**` rendered in bold, followed by one
+  blank line and then the refined request?
 - Can the agent finish without undertaking unrelated work?
 
 ## Example: frontend interaction
@@ -122,7 +125,8 @@ Make siderbar close on clicking ask ai button when sidebar is open, so user can 
 
 ### Expected announcement
 
-Refined Prompt -
+**Refined prompt**
+
 Make the existing Ask AI button toggle the AI sidebar:
 
 - When the sidebar is closed, clicking Ask AI opens it.
@@ -148,3 +152,31 @@ introduce a second state store.
 - Reuses existing state and preserves the conversation instead of treating
   closing the sidebar as a request to reset it.
 - Announces only the refined request without echoing the user's message.
+
+## Example: a short question
+
+Example input: "why does the sidebar close when I switch tabs?"
+
+Expected announcement:
+
+**Refined prompt**
+
+Explain why switching tabs closes the sidebar, using the current state and
+navigation logic to identify the cause.
+
+Then answer the question. The question does not authorize a code change.
+
+## Example: a correction during ongoing work
+
+Context: the user already requested a sidebar toggle change and an update to
+its existing PR. Example input: "keep the label as Ask AI, don't rename it"
+
+Expected announcement:
+
+**Refined prompt**
+
+Keep the button label exactly "Ask AI" while completing the sidebar toggle
+change and updating the existing PR.
+
+Then continue the authorized work with the correction applied. Use the same
+bold heading and blank line even for a one-sentence follow-up.
