@@ -97,6 +97,19 @@ tool when it suits the questions, or ask numbered questions in chat. Open
 questions should allow unexpected answers. Do not force multiple choice
 for discovery or dump the whole question bank into one message.
 
+When offering choices about compatible goals or preferences, include
+"All of them" and allow a combination. Do not phrase these as "which matters
+most?" unless an actual tradeoff requires prioritization. If the question
+tool only supports one selection, offer an explicit combined option or ask
+in chat so the user can choose several. Preserve the tool's option limits.
+For mutually exclusive decisions, offer only valid alternatives and explain
+the tradeoff. Do not offer "all" when the choices cannot coexist.
+
+For example, ask "What should this rewrite improve: easier future changes,
+fewer state-related bugs, cleaning up the current sidebar work, a combination,
+or all of them?" Accept "all" as the scope. Ask about priority afterward only
+if time, cost, or conflicting requirements make that necessary.
+
 After every answer round:
 
 1. State what you learned and how it changes your view of the idea.
