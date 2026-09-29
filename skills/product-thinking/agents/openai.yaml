@@ -1,0 +1,6 @@
+interface:
+  display_name: "Product thinking"
+  short_description: "Probe ideas with questions, feedback, and evidence"
+  default_prompt: "Use $product-thinking to pressure-test my idea through probing questions, candid feedback, and follow-up rounds before deciding what to build."
+policy:
+  allow_implicit_invocation: true
