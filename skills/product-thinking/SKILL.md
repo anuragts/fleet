@@ -1,6 +1,6 @@
 ---
 name: product-thinking
-description: Validate product and feature ideas through probing questions, candid feedback, and adaptive follow-up rounds before building. Use when exploring an idea, testing demand, choosing what to build, or pressure-testing product assumptions. Do not turn routine fixes or an explicit implementation request into a discovery interview.
+description: Ask probing questions and give candid feedback before new features, substantial rewrites, and vague requests that leave product outcomes unclear, such as make it animate or speed it up. Also use for idea validation and choosing what to build. Skip simple precise edits, routine fixes, and non-product tasks.
 ---
 
 # Product thinking
@@ -11,6 +11,70 @@ answers to challenge and improve the idea. This is an original workflow
 inspired by the supplied screenshot, not Emil Kowalski's private skill or
 interview notes.
 
+## When to trigger
+
+Apply this skill automatically when the user asks for a new feature, a
+substantial rewrite, or an open-ended improvement that leaves meaningful
+product decisions unresolved. "Build" or "implement" alone does not bypass
+this step. Ask about the intended outcome before choosing the behavior.
+Also apply it to exploratory questions about what to build or whether an
+idea is worth pursuing. Questions remain read-only unless implementation
+is separately requested.
+
+Judge the decision, not just the words. A new user capability calls for
+product thinking. A precise change to an existing button usually does not.
+A rewrite should prompt questions about why it is needed, which behavior
+must survive, and what improvement would justify the change. A mechanical
+refactor with specified behavior and boundaries can proceed directly.
+
+For vague motion or performance requests, start with 1 to 3 questions about
+the affected interaction, desired outcome, and observable success. Inspect
+available context first. Do not turn a small ambiguity into a market or
+business interview. For a new feature, use the deeper interview below.
+
+### Examples of when to ask
+
+| Request | Useful opening questions |
+| --- | --- |
+| "Add a team collaboration feature." | Who collaborates, on what task, and what fails in the current workflow? |
+| "Build a notifications center." | Which events deserve attention, what action follows, and how should unread items behave? |
+| "Rewrite onboarding." | Where do users struggle today, what must remain, and what outcome should improve? |
+| "Rewrite this dashboard from scratch." | What makes the current dashboard inadequate, and which workflows must the rewrite preserve? |
+| "Make it animate." | Which interaction should animate, and should motion explain a state change, provide feedback, or serve another purpose? |
+| "Speed it up." | Which action feels slow, what is the current delay, and what improvement would count as success? |
+| "Should we add AI search?" | What do people fail to find today, and why would AI help with that specific problem? |
+
+Ask follow-ups based on the answers. Give feedback on proposed behavior and
+tradeoffs rather than silently inventing requirements.
+
+### Examples of when not to ask
+
+| Request | Expected behavior |
+| --- | --- |
+| "Change this button label to Save." | Make the specified label change. |
+| "Change this button to the existing secondary variant." | Use the existing variant. |
+| "Set the modal fade to 150ms and respect reduced motion." | Apply the specified motion behavior using the established conventions. |
+| "Fix the crash when this list is empty." | Diagnose and fix the failure while preserving intended behavior. |
+| "Replace this loop with a map, keeping the same output." | Perform the bounded refactor. |
+| "Optimize this query to remove the N+1 calls without changing results." | Investigate and improve the specified bottleneck. |
+| "Update the dependency to version 2.4.1." | Perform the requested maintenance. |
+| "Explain this stack trace" or "correct this typo." | Answer or make the edit within the requested scope. |
+
+Skipping this skill does not mean ignoring a missing detail essential to
+correctness. Ask that specific clarification through the ordinary workflow.
+Do not start a product interview merely because a task mentions UI, motion,
+performance, a rewrite, or a feature already discussed in this conversation.
+
+### Already answered or explicitly skipped
+
+Read prior answers and supplied requirements before asking. For a new
+feature whose audience, outcome, behavior, and constraints are already clear,
+briefly state the understanding and ask only about consequential gaps.
+Do not repeat a completed interview on each implementation follow-up.
+Respect an explicit "skip questions," "use the agreed spec," or "just build
+with these assumptions." State consequential assumptions and proceed within
+the authorization already given.
+
 ## Start with the decision
 
 Read the idea and existing context. Reuse answers already given. Identify
@@ -18,10 +82,12 @@ whether the decision is to pursue a problem, choose a solution, narrow an
 audience, or test an assumption. If no idea is provided, ask for it and the
 decision the user wants help making.
 
-Treat idea validation as discussion. Do not start implementation, contact
-customers, or publish anything unless the user authorizes those actions.
-Respect an explicit instruction to build or skip discovery. For a concrete
-implementation task, ask only questions that materially affect that task.
+Treat idea validation as discussion. Do not contact customers or publish
+anything unless the user authorizes those actions. When implementation is
+requested, resolve consequential product gaps before dependent work, then
+continue building under that existing authorization. Do not require a second
+generic approval to implement. When the user only asks a question, answer
+without making changes.
 
 ## Run an adaptive interview
 

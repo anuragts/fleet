@@ -23,8 +23,8 @@ Here are my preferences, So we can work more aligned.
 
 ## Product thinking
 
-- When exploring or validating a product or feature idea, read and apply the `product-thinking` skill. Local: `/Users/anurag/kafka/fleet/skills/product-thinking/SKILL.md`. GitHub: https://github.com/anuragts/fleet/blob/main/skills/product-thinking/SKILL.md. Use the local copy first; if unavailable, read the GitHub copy.
-- Ask probing questions in manageable rounds, give candid feedback after answers, and follow up on weak assumptions before recommending what to build. Reuse prior answers and invite corrections. Respect an explicit request to implement or skip discovery; do not turn routine fixes into an interview.
+- Before implementing a new feature, substantial rewrite, or vague product improvement such as "make it animate" or "speed it up," read and apply the `product-thinking` skill. Also use it when exploring or validating an idea. Local: `/Users/anurag/kafka/fleet/skills/product-thinking/SKILL.md`. GitHub: https://github.com/anuragts/fleet/blob/main/skills/product-thinking/SKILL.md. Use the local copy first; if unavailable, read the GitHub copy.
+- Ask focused questions about the intended outcome, give candid feedback after answers, and follow up on consequential gaps before choosing behavior. Use deeper rounds for new features and brief clarification for vague improvements. Reuse prior answers and respect an explicit request to skip questions. Skip the product interview for simple precise edits, routine fixes, bounded refactors, and non-product tasks, such as changing a button label or variant. Once consequential gaps are resolved, continue an authorized implementation without asking for generic approval again.
 
 ## Prompt refinement
 
