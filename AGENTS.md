@@ -21,6 +21,11 @@ Here are my preferences, So we can work more aligned.
 - When making a feature, make it so that when we want to add another feature to it, the minimal line changes and the whole architecture doesn't need to be rewritten. It should be extendable.
 - In frontend, when making a PR, make sure to do build and check if everything is working.
 
+## Product thinking
+
+- When exploring or validating a product or feature idea, read and apply the `product-thinking` skill. Local: `/Users/anurag/kafka/fleet/skills/product-thinking/SKILL.md`. GitHub: https://github.com/anuragts/fleet/blob/main/skills/product-thinking/SKILL.md. Use the local copy first; if unavailable, read the GitHub copy.
+- Ask probing questions in manageable rounds, give candid feedback after answers, and follow up on weak assumptions before recommending what to build. Reuse prior answers and invite corrections. Respect an explicit request to implement or skip discovery; do not turn routine fixes into an interview.
+
 ## Prompt refinement
 
 - Before answering or acting on each new user prompt, read and apply the `refine` skill, including for follow-ups and corrections. Local: `/Users/anurag/kafka/fleet/skills/refine/SKILL.md`. GitHub: https://github.com/anuragts/fleet/blob/main/skills/refine/SKILL.md. Use the local copy first and the GitHub copy when the local checkout is unavailable.
