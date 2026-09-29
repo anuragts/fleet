@@ -61,7 +61,8 @@ tradeoffs rather than silently inventing requirements.
 | "Explain this stack trace" or "correct this typo." | Answer or make the edit within the requested scope. |
 
 Skipping this skill does not mean ignoring a missing detail essential to
-correctness. Ask that specific clarification through the ordinary workflow.
+correctness. Unless the user says not to ask questions, ask that specific
+clarification through the ordinary workflow.
 Do not start a product interview merely because a task mentions UI, motion,
 performance, a rewrite, or a feature already discussed in this conversation.
 
@@ -75,12 +76,37 @@ Respect an explicit "skip questions," "use the agreed spec," or "just build
 with these assumptions." State consequential assumptions and proceed within
 the authorization already given.
 
+### Uninterrupted work or no questions
+
+Choose the questioning mode from the user's prompt before starting an
+interview. These instructions override the default rounds and requests for
+feedback elsewhere in this skill.
+
+- If the user says "don't interrupt this thread," "finish without stopping,"
+  or asks for uninterrupted work, inspect the available context first and
+  collect all necessary product and scope questions into one upfront batch.
+  Ask before implementation starts, wait for the answers, then work through
+  completion without further product questions or feedback checkpoints.
+  State reasonable assumptions for later gaps instead of reopening the
+  interview. If context already answers everything necessary, start work.
+- If the user says "don't ask questions," "no questions," or "just proceed,"
+  skip the interview entirely. Use existing context, choose reasonable
+  defaults, and briefly state consequential assumptions. Do not ask an
+  upfront batch, follow-up questions, or a closing request for feedback.
+- If both instructions appear, "don't ask questions" takes precedence.
+
+Keep assumptions within the requested scope and existing authorization.
+If a required action cannot proceed under the governing permissions or
+available information, report the specific limitation instead of inventing
+facts or treating silence as approval. This does not create a discretionary
+product-question checkpoint.
+
 ## Start with the decision
 
 Read the idea and existing context. Reuse answers already given. Identify
 whether the decision is to pursue a problem, choose a solution, narrow an
-audience, or test an assumption. If no idea is provided, ask for it and the
-decision the user wants help making.
+audience, or test an assumption. If no idea is provided and questions are
+allowed, ask for it and the decision the user wants help making.
 
 Treat idea validation as discussion. Do not contact customers or publish
 anything unless the user authorizes those actions. When implementation is
