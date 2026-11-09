@@ -1,0 +1,4 @@
+interface:
+  display_name: "Jev Code Check"
+  short_description: "Find reusable code and check requirements or architecture"
+  default_prompt: "Use $jev-code-check to evaluate code reuse, requirements, or architecture in the requested scope."
