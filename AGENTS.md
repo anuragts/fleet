@@ -40,6 +40,8 @@ Here are my preferences, So we can work more aligned.
 
 ## Coding Frontend preferences
 
+- For browser testing, bug reproduction, and frontend verification, read and follow the `browser-testing` skill. Local: `/Users/anurag/kafka/fleet/skills/browser-testing/SKILL.md`. GitHub: https://github.com/anuragts/fleet/blob/main/skills/browser-testing/SKILL.md. Use the local copy first and the GitHub copy when unavailable. Default to Helium's sandbox profile, prefer the available Claude/Codex browser extension, fall back to computer use and another available browser when needed, and use GitHub sign-in when signed out in a confirmed development environment.
+
 - When creating frontend, work as a design engineer, And focus on taste, I don't only wanna pixel perfect figma but think edge cases and think about the user experience.
 - Use TypeScript, Tailwind, ReactJS, and shadcn components. 
 - Making a new design, and no UI is provided or no screenshot is provided. I can make a design from the sketch. Give us three or four different variants of that with a button that can change the design, so we have better examples to choose from.
