@@ -21,6 +21,11 @@ Here are my preferences, So we can work more aligned.
 - When making a feature, make it so that when we want to add another feature to it, the minimal line changes and the whole architecture doesn't need to be rewritten. It should be extendable.
 - In frontend, when making a PR, make sure to do build and check if everything is working.
 
+## TypeSafe
+
+- Read and apply the `typesafe-ai` skill when working on AI features, structured judgments, routing, ranking, extraction, or verification. Local: `/Users/anurag/.agents/skills/typesafe-ai/SKILL.md`. GitHub: https://github.com/typesafe-ai/skills/blob/main/skills/typesafe-ai/SKILL.md. Use the local copy first and the GitHub copy when unavailable.
+- Follow the skill's live documentation guidance before implementing TypeSafe integrations. Preserve the project's stack and scope; use TypeSafe where semantic understanding helps.
+
 ## Product thinking
 
 - Before implementing a new feature, substantial rewrite, or vague product improvement such as "make it animate" or "speed it up," read and apply the `product-thinking` skill. Also use it when exploring or validating an idea. Local: `/Users/anurag/kafka/fleet/skills/product-thinking/SKILL.md`. GitHub: https://github.com/anuragts/fleet/blob/main/skills/product-thinking/SKILL.md. Use the local copy first; if unavailable, read the GitHub copy.

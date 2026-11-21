@@ -1,6 +1,6 @@
 # Fleet
 
-My shared coding-agent instructions for Codex and Claude Code.
+My shared coding-agent instructions for Codex, Claude Code, and Google Antigravity.
 
 ## What's included
 
@@ -14,6 +14,8 @@ My shared coding-agent instructions for Codex and Claude Code.
 
 From this repository:
 
+### Codex and Claude Code
+
 ```sh
 mkdir -p ~/.codex ~/.claude
 cp AGENTS.md ~/.codex/AGENTS.md
@@ -22,5 +24,13 @@ mkdir -p ~/.codex/skills ~/.claude/skills
 cp -R skills/unslop ~/.codex/skills/unslop
 cp -R skills/unslop ~/.claude/skills/unslop
 ```
+
+### Google Antigravity (standalone and T3 Code)
+
+```sh
+./scripts/sync-antigravity.sh
+```
+
+This symlinks `AGENTS.md` and writes `skills.json` (pointing to `fleet/skills`, `~/.claude/skills`, `~/.codex/skills`, and `~/.agents/skills`) for `~/.gemini/` and for every T3 Code Antigravity provider instance under `~/.t3/userdata/providers/antigravity/*`. Re-run it if you add a new Antigravity provider instance in T3 Code.
 
 Restart the agent session after updating the global instruction files.
